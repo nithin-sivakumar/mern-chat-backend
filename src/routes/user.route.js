@@ -10,4 +10,6 @@ userRouter
   .put(userController.updateById)
   .delete(userController.deleteById);
 
+userRouter.route("/login").post(userController.login);
+
 export { userRouter };
