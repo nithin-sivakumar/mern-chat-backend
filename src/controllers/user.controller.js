@@ -3,6 +3,7 @@ import { deleteOneUser } from "./User/deleteOne.js";
 import { fetchAllUsers } from "./User/fetchAllUsers.js";
 import { getAllUsers } from "./User/getAll.js";
 import { getOneUser } from "./User/getOne.js";
+import { fetchUserInfo } from "./User/info.js";
 import { loginUser } from "./User/login.js";
 import { updateOneUser } from "./User/updateOne.js";
 
@@ -14,6 +15,7 @@ const userController = {
   get: getAllUsers,
   login: loginUser,
   fetch: fetchAllUsers,
+  info: fetchUserInfo,
 };
 
 export { userController };

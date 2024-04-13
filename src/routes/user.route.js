@@ -7,6 +7,8 @@ userRouter.route("/").get(userController.get);
 
 userRouter.route("/fetch-users").get(checkAuth, userController.fetch);
 
+userRouter.route("/info").get(checkAuth, userController.info);
+
 userRouter
   .route("/:id")
   .get(userController.getById)

@@ -9,7 +9,7 @@ chatRouter.route("/").get(checkAuth, chatController.fetchChats);
 
 chatRouter
   .route("/create-group")
-  .get(checkAuth, chatController.createGroupChat);
+  .post(checkAuth, chatController.createGroupChat);
 
 chatRouter.route("/fetch-groups").get(checkAuth, chatController.fetchGroups);
 

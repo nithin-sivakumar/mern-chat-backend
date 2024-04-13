@@ -12,6 +12,8 @@ export const accessChat = async (req, res) => {
         .send(new ApiResponse(400, null, "UserID missing from the request."));
     }
 
+    const sender = await User.findById(userId);
+
     let isChat = await Chat.find({
       isGroupChat: false,
       $and: [
@@ -33,7 +35,7 @@ export const accessChat = async (req, res) => {
         .send(new ApiResponse(200, isChat[0], "Chat accessed successfully."));
     } else {
       const created = await Chat.create({
-        name: "sender",
+        name: sender.name,
         isGroupChat: false,
         users: [req.user._id, userId],
       });

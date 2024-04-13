@@ -10,8 +10,8 @@ export const createGroupChat = async (req, res) => {
         .send(new ApiResponse(400, null, "Required fields missing."));
     }
 
-    let users = JSON.parse(req.body.users);
-    users.push(req.user);
+    let users = req.body.users;
+    // users.push(req.user);
 
     const groupChat = await Chat.create({
       name: req.body.name,
