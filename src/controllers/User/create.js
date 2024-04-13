@@ -24,9 +24,24 @@ export const createUser = async (req, res) => {
       password: hashed,
     });
 
+    const at = created.generateAccessToken();
+    const rt = created.generateRefreshToken();
+
+    created.refreshToken = rt;
+    await created.save();
+
+    res.cookie("at", at);
+    res.cookie("rt", rt);
+
     res
       .status(201)
-      .send(new ApiResponse(201, created, "User created successfully."));
+      .send(
+        new ApiResponse(
+          201,
+          { user: created, accessToken: at, refreshToken: rt },
+          "User created successfully."
+        )
+      );
   } catch (error) {
     console.log(error);
     res.status(500).send(new ApiResponse(500, error, "Error creating user."));

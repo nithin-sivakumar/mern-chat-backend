@@ -1,5 +1,6 @@
 // Define a CORS whitelist of allowed origins
 const whitelist = [
+  "http://localhost:5173",
   "*",
   // Add more URLs as required
 ];

@@ -8,7 +8,6 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Field not found. Name is required!"],
       trim: true,
-      index: true,
     },
     email: {
       type: String,
@@ -28,13 +27,6 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
-
-// userSchema.pre("save", async function (next) {
-//   if (!this.isModified("password")) return next();
-
-//   this.password = bcrypt.hash(this.password, 10);
-//   next();
-// });
 
 userSchema.methods.verifyPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
