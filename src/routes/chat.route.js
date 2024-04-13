@@ -15,4 +15,6 @@ chatRouter.route("/fetch-groups").get(checkAuth, chatController.fetchGroups);
 
 chatRouter.route("/group-exit").get(checkAuth, chatController.groupExit);
 
+chatRouter.route("/join-group").post(checkAuth, chatController.addSelfToGroup);
+
 export { chatRouter };

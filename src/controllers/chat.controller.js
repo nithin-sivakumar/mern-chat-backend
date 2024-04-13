@@ -1,4 +1,5 @@
 import { accessChat } from "./Chat/accessChat.js";
+import { addSelfToGroup } from "./Chat/addSelfToGroup.js";
 import { createGroupChat } from "./Chat/createGroupChat.js";
 import { fetchChats } from "./Chat/fetchChats.js";
 import { fetchGroups } from "./Chat/fetchGroups.js";
@@ -10,6 +11,7 @@ const chatController = {
   createGroupChat: createGroupChat,
   fetchGroups: fetchGroups,
   groupExit: groupExit,
+  addSelfToGroup: addSelfToGroup,
 };
 
 export { chatController };
